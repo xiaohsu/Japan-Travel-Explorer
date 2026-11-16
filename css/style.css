@@ -1,0 +1,425 @@
+
+/* =========================
+   Global Settings
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #101820;
+    color: #F5F1E8;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+/* =========================
+   Navigation Bar
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #D4AF37;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: #D5D5D5;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #D4AF37;
+}
+
+
+/* =========================
+   Hero Section
+========================= */
+
+.hero {
+    min-height: 550px;
+    padding: 110px 20px 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subtitle {
+    color: #D4AF37;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 70px);
+    line-height: 1.2;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.hero h1 span {
+    color: #D4AF37;
+}
+
+.description {
+    color: #B5B5B5;
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.explore-btn {
+    padding: 16px 28px;
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.explore-btn span {
+    margin-left: 15px;
+}
+
+.explore-btn:hover {
+    background-color: #D4AF37;
+    color: #101820;
+}
+
+
+/* =========================
+   Map Section
+========================= */
+
+.map-section {
+    padding: 60px 8% 100px;
+    text-align: center;
+}
+
+.section-heading p {
+    color: #D4AF37;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.section-heading span {
+    color: #A5A5A5;
+    font-size: 14px;
+}
+
+.map-placeholder {
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
+    margin: 45px auto 0;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: radial-gradient(
+        ellipse at center,
+        #1B2A35,
+        #101820
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-text span {
+    color: #D4AF37;
+    font-size: 40px;
+    letter-spacing: 12px;
+}
+
+.map-text p {
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    padding: 30px 8%;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    .map-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   Japan Interactive Map
+========================= */
+
+.japan-map {
+    width: 100%;
+    max-width: 650px;
+    margin: 45px auto 0;
+    padding: 20px;
+}
+
+.map-svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* Region Shapes */
+
+.region {
+    fill: #263D49;
+    stroke: #D4AF37;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+/* Region Labels */
+
+.map-labels {
+    fill: #F5F1E8;
+    font-size: 15px;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+}
+/* =========================
+   Japan Map - Region Colors
+========================= */
+
+/* 日本地圖整體 */
+.map-svg {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 所有縣市的基本樣式 */
+.map-svg .prefecture {
+    fill: #263D49;
+    stroke: #D4AF37;
+    stroke-width: 1.5;
+    transition: fill 0.3s ease;
+}
+
+/* 八大地區的不同底色 */
+.map-svg .hokkaido { fill: #36566A; }
+.map-svg .tohoku { fill: #294B5A; }
+.map-svg .kanto { fill: #365B61; }
+.map-svg .chubu { fill: #42645F; }
+.map-svg .kinki { fill: #5A6654; }
+.map-svg .chugoku { fill: #4D596B; }
+.map-svg .shikoku { fill: #625D4C; }
+.map-svg .kyushu { fill: #45566B; }
+
+/* 滑鼠移過時的效果 */
+.map-svg .prefecture:hover {
+    fill: #D4AF37;
+    cursor: pointer;
+}
+/* =========================
+   Japan Map - Region Colors
+========================= */
+
+/* 日本地圖整體 */
+.map-svg {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 所有縣市的基本樣式 */
+.map-svg .prefecture {
+    fill: #263D49;
+    stroke: #D4AF37;
+    stroke-width: 1.5;
+    transition: fill 0.3s ease;
+}
+
+/* 八大地區配色 */
+.map-svg .hokkaido { fill: #D6A84B !important; }
+.map-svg .tohoku { fill: #3E7890 !important; }
+.map-svg .kanto { fill: #527EBA !important; }
+.map-svg .chubu { fill: #4F927F !important; }
+.map-svg .kinki { fill: #A17CBA !important; }
+.map-svg .chugoku { fill: #B47B55 !important; }
+.map-svg .shikoku { fill: #C16F82 !important; }
+.map-svg .kyushu { fill: #718B52 !important; }
+
+/* 滑鼠移過時的效果 */
+.map-svg .prefecture:hover {
+    fill: #D4AF37 !important;
+    cursor: pointer;
+}
+/* 整個地區的高亮效果 */
+.map-svg .region-active {
+    fill: #D4AF37 !important;
+    transition: fill 0.3s ease;
+}
+/* =========================
+   Map Layout
+========================= */
+
+.map-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 45px auto 0;
+    padding: 0 30px;
+}
+
+/* 日本地圖區域 */
+.japan-map {
+    flex: 1.5;
+    min-width: 0;
+}
+
+/* 右側資訊區 */
+.region-info {
+    flex: 1;
+    max-width: 360px;
+    padding: 30px;
+    border-left: 1px solid #D4AF37;
+}
+
+/* 資訊標題 */
+.info-label {
+    color: #D4AF37;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* 中文地區名稱 */
+.region-info h2 {
+    color: #F5F1E8;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+/* 英文地區名稱 */
+#region-english {
+    color: #D4AF37;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* 分隔線 */
+.info-divider {
+    width: 50px;
+    height: 2px;
+    background: #D4AF37;
+    margin: 25px 0;
+}
+
+/* 地區介紹 */
+#region-description {
+    color: #B8C0C5;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* 手機版：改為上下排列 */
+@media (max-width: 768px) {
+    .map-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .region-info {
+        width: 100%;
+        max-width: 600px;
+        border-left: none;
+        border-top: 1px solid #D4AF37;
+    }
+}
